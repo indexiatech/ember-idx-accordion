@@ -1,0 +1,44 @@
+<h1>Controller per Accordion Item</h1>
+
+If your _accordion items_ are more advanced and contains large template & logic you can have a separated
+template / controller pair per _accordion item_ by using the <i>\{{render}}</i> handlebars helper.
+<br/><br/>
+<p><i><a href="http://emberjs.com/guides/templates/rendering-with-helpers">Please check Ember \{{render}} doc for more info.</a></i></p>
+
+<h2>Demo</h2>
+
+{{#em-accordion configName='bs' selected-idx=1}}
+    {{#em-accordion-item title="Panel 1"}}
+        {{render 'c1'}}
+    {{/em-accordion-item}}
+    {{#em-accordion-item title="Panel 2"}}
+        {{render 'c2'}}
+    {{/em-accordion-item}}
+{{/em-accordion}}
+
+
+<h2>Markup</h2>
+
+<div class="well line-example">
+    <pre><code class="handlebars">
+        \{{#em-accordion configName='bs' selected-idx=1}}
+            \{{#em-accordion-item title="Panel 1"}}
+                \{{render 'c1'}}
+            \{{/em-accordion-item}}
+            \{{#em-accordion-item title="Panel 2"}}
+                \{{render 'c2'}}
+            \{{/em-accordion-item}}
+        \{{/em-accordion}}
+    </code></pre>
+
+    <pre><code class="javascript">
+    //c1 controller
+    export default Em.Controller.extend({
+        label: 'Hello from C1 Controller.'
+    })
+    //c2 controller
+    export default Em.Controller.extend({
+        label: 'Hello from C2 Controller.'
+    })
+    </code></pre>
+</div>

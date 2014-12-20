@@ -1,0 +1,37 @@
+<h1>Accordiong with Query Params</h1>
+
+It is possible to bound the current selected accordion item to a controller parameter (usually a query param)
+by bindingthe <i>selected-idx</i> property on the <i>\{{em-accordion}}</i> tag.
+
+<h2>Demo</h2>
+
+{{#em-accordion configName='bs' selected-idx=item_idx}}
+    {{#em-accordion-item title="Panel 1"}}
+        Content of panel #1
+    {{/em-accordion-item}}
+    {{#em-accordion-item title="Panel 2"}}
+        Content of panel #2
+    {{/em-accordion-item}}
+    {{#em-accordion-item title="Panel 3"}}
+        Content of panel #3
+    {{/em-accordion-item}}
+{{/em-accordion}}
+
+
+<h2>Markup</h2>
+
+<div class="well line-example">
+    <pre><code class="handlebars">
+        \{{#em-accordion configName='bs' selected-idx=item_idx}}
+            \{{#em-accordion-item title="Panel 1"}}
+                Content of panel #1
+            \{{/em-accordion-item}}
+            \{{#em-accordion-item title="Panel 2"}}
+                Content of panel #2
+            \{{/em-accordion-item}}
+            \{{#em-accordion-item title="Panel 3"}}
+                Content of panel #3
+            \{{/em-accordion-item}}
+        \{{/em-accordion}}
+    </code></pre>
+</div>
