@@ -1,6 +1,6 @@
 {
   "name": "ember-idx-accordion",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -43,6 +43,6 @@
     "configPath": "tests/dummy/config"
   },
   "dependencies": {
-    "ember-idx-utils": "^0.2.1"
+    "ember-idx-utils": "^0.2.2"
   }
 }
