@@ -99,7 +99,7 @@ export default Em.Component.extend(WithConfigMixin, {
    */
   selectByParam: (function() {
     var idx;
-    if ((this.get('accordion.selected') != null) === this) {
+    if (this.get('accordion.selected') === this) {
       return;
     }
     idx = parseInt(this.get('accordion.selected-idx', 10));
