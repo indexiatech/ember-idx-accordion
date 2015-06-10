@@ -85,10 +85,10 @@ export default Em.Component.extend(WithConfigMixin, {
    *
    * Bound to `click` event.
    *
-   * @method select
+   * @method toggle
    */
-  select: (function() {
-    return this.get('accordion').select(this);
+  toggle: (function() {
+    return this.get('accordion').toggle(this);
   }).on('click'),
 
   /**
@@ -104,7 +104,7 @@ export default Em.Component.extend(WithConfigMixin, {
     }
     idx = parseInt(this.get('accordion.selected-idx', 10));
     if (idx === this.get('index')) {
-      return this.select();
+      return this.toggle();
     }
   }).observes('accordion.selected-idx').on('didInsertElement'),
 

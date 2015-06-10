@@ -42,6 +42,24 @@ export default Em.Component.extend(WithConfigMixin, {
   },
 
   /**
+   * Toggle the given item.
+   *
+   * @method toggle
+   * @param {Object} an item instance to select.
+   */
+  toggle: function(item) {
+    if (this.get('selected') === item) {
+      Em.debug("Unsecting item: " + (item.get('index')));
+      this.unselect();
+    } else {
+      Em.debug("Selecting item: " + (item.get('index')));
+      this.select(item);
+    }
+
+    return this.get('selected');
+  },
+
+  /**
    * Select the given item.
    *
    * @method select
@@ -51,8 +69,18 @@ export default Em.Component.extend(WithConfigMixin, {
     if (!item) {
       return;
     }
-    Em.debug("Selecting item: " + (item.get('index')));
+
     this.set('selected', item);
     return this.set('selected-idx', item.get('index'));
+  },
+
+  /**
+   * Clears accordion selection.
+   *
+   * @method unselect
+   */
+  unselect: function() {
+    this.set('selected', undefined);
+    return this.set('selected-idx', -1);
   }
 });
