@@ -81,17 +81,6 @@ export default Em.Component.extend(WithConfigMixin, {
   }).property('selected'),
 
   /**
-   * Select this item.
-   *
-   * Bound to `click` event.
-   *
-   * @method toggle
-   */
-  toggle: (function() {
-    return this.get('accordion').toggle(this);
-  }).on('click'),
-
-  /**
    * Select this item if it matches the {{#crossLink "Accordiong/select:method"}}selected-idx{{/crossLink}} property set by the Accordion component.
    *
    * @method selectByAccordionParam
@@ -104,7 +93,7 @@ export default Em.Component.extend(WithConfigMixin, {
     }
     idx = parseInt(this.get('accordion.selected-idx', 10));
     if (idx === this.get('index')) {
-      return this.toggle();
+      return this.get('accordion').toggle(this)
     }
   }).observes('accordion.selected-idx').on('didInsertElement'),
 
@@ -130,5 +119,10 @@ export default Em.Component.extend(WithConfigMixin, {
     var $accordionBody;
     $accordionBody = this.$('.panel-collapse');
     return $accordionBody.addClass('in');
+  },
+  actions: {
+    toggle: function() {
+      return this.get('accordion').toggle(this);
+    }
   }
 });

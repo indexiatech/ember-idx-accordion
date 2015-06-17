@@ -5,7 +5,7 @@
 <!--panel-collapse collapse-->
 <!--panel-body-->
 <div {{bind-attr class=panelHeaderClasses}}>
-    <h4 {{bind-attr class=panelTitleClasses}} style="cursor: pointer;">
+    <h4 {{action "toggle"}} {{bind-attr class=panelTitleClasses}} style="cursor: pointer;">
         <a {{bind-attr class=panelTogglerClasses}}>
             {{view.title}}
         </a>
